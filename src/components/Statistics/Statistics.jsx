@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
+import Notification from 'components/Notification/Notification';
 
 const Statistics = ({ total, positivePercentage, ...restStat }) => {
   return (
@@ -12,10 +13,14 @@ const Statistics = ({ total, positivePercentage, ...restStat }) => {
           </li>
         ))}
       </ul>
-      <div className={css.totalFeedback}>
-        <p>Total: {total()}</p>
-        <p>Positive feedback: {positivePercentage()}%</p>
-      </div>
+      {total() > 0 ? (
+        <div className={css.totalFeedback}>
+          <p>Total: {total()}</p>
+          <p>Positive feedback: {positivePercentage()}%</p>
+        </div>
+      ) : (
+        <Notification message="There is no feedback" />
+      )}{' '}
     </div>
   );
 };

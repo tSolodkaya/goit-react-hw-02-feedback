@@ -43,6 +43,7 @@ export class App extends Component {
             options={this.feedbacks}
             onLeaveFeedback={this.decreseStatistic}
           />
+
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}
