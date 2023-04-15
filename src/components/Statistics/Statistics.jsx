@@ -3,11 +3,12 @@ import css from './Statistics.module.css';
 import Notification from 'components/Notification/Notification';
 
 const Statistics = ({ total, positivePercentage, ...restStat }) => {
+  const statisticsOptions = Object.keys(restStat);
   return (
     <div>
       <h2 className={css.statistics}>Statistics</h2>
       <ul className={css.statisticsList}>
-        {Object.keys(restStat).map(feedback => (
+        {statisticsOptions.map(feedback => (
           <li key={feedback} className={css.statisticsListItem}>
             {feedback}: {restStat[feedback]}
           </li>
@@ -20,7 +21,7 @@ const Statistics = ({ total, positivePercentage, ...restStat }) => {
         </div>
       ) : (
         <Notification message="There is no feedback" />
-      )}{' '}
+      )}
     </div>
   );
 };
