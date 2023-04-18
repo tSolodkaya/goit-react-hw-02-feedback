@@ -4,6 +4,8 @@ import Notification from 'components/Notification/Notification';
 
 const Statistics = ({ total, positivePercentage, ...restStat }) => {
   const statisticsOptions = Object.keys(restStat);
+  const positiveFeedback = positivePercentage();
+  const totalFeedback = total();
   return (
     <div>
       <h2 className={css.statistics}>Statistics</h2>
@@ -14,10 +16,10 @@ const Statistics = ({ total, positivePercentage, ...restStat }) => {
           </li>
         ))}
       </ul>
-      {total() > 0 ? (
+      {totalFeedback > 0 ? (
         <div className={css.totalFeedback}>
-          <p>Total: {total()}</p>
-          <p>Positive feedback: {positivePercentage()}%</p>
+          <p>Total: {totalFeedback}</p>
+          <p>Positive feedback: {positiveFeedback}%</p>
         </div>
       ) : (
         <Notification message="There is no feedback" />

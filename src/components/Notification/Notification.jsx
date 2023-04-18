@@ -1,10 +1,8 @@
-import Notiflix from 'notiflix';
 import PropTypes from 'prop-types';
-
-//import css from './Notification.module.css';
+import css from './Notification.module.css';
 
 const Notification = ({ message }) => {
-  return <div>{Notiflix.Notify.info(message)}</div>;
+  return <div className={css.notification}>{message}</div>;
 };
 
 Notification.propTypes = {
